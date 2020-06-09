@@ -1,14 +1,14 @@
 # DockerPi Package
 
 This is a Docker PI sensor hub package.<br>
-While instanciating the class object, two mandatory arguments (devicebus and deviceaddr) and one optional argument (disaplay) must be passed.<br>
+While instanciating the class object, two mandatory arguments (**devicebus** and **deviceaddr**) and one optional argument (**disaplay**) must be passed.<br>
 
-devicebus - the number of device.<br>
-deviceaddr - configured address of DockerPi i2c.<br>
-display - turn the print statements 'ON' or 'OFF'. Default: 'OFF'.<br>
+**devicebus** - the number of device.<br>
+**deviceaddr** - configured address of DockerPi i2c.<br>
+**display** - turn the print statements 'ON' or 'OFF'. Default: 'OFF'.<br>
 
 
-All temperature methods can be called with optional unit argument. i.e, 'DEGREECELSIUS' or 'FAHRENHEIT'. by default, 'DEGREECELSIUS' is returned.<br>
+All temperature methods can be called with an optional **unit** argument. i.e, 'DEGREECELSIUS' or 'FAHRENHEIT'. by default, 'DEGREECELSIUS' is returned.<br>
 
 # Installation
 

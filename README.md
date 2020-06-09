@@ -1,12 +1,17 @@
 # DockerPi Package
 
 This is a Docker PI sensor hub package.
+While instanciating the class object, two mandatory arguments (devicebus and deviceaddr) and one optional argument (disaplay) must be passed.
+
+devicebus - the number of device
+deviceaddr - configured address of DockerPi i2c
+display - turn the print statements 'ON' or 'OFF'. Default: 'OFF'
+All temperature methods can be called with optional unit argument. i.e, 'DEGREECELSIUS' or 'FAHRENHEIT'. by default, 'DEGREECELSIUS' is returned.
 
 # Installation
+
 Change your directory in to root folder of this package and then execute below pip command
 **"pip install ."**
-
-
 
 # Example Code
 
@@ -24,9 +29,9 @@ def main():
     x = sensor.isHumanDetected()
     y = sensor.getOffChipTemperature()
     z = sensor.getOnBoardBrightness()
-    a = sensor.getOnBoardTemperature()
+    a = sensor.getOnBoardTemperature('FAHRENHEIT')
     b = sensor.getOnBoardHumidity()
-    c = sensor.getBarometerTemperature()
+    c = sensor.getBarometerTemperature('DEGREECELSIUS')
     d = sensor.getBarometerPressure()
 
     sleep(15)

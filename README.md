@@ -4,7 +4,7 @@ This is a Docker PI sensor hub package.
 
 # Installation
 Change your directory in to root folder of this package and then execute below pip command
-**pip install .**
+**"pip install ."**
 
 
 

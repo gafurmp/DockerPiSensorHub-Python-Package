@@ -1,6 +1,8 @@
 # DockerPi Package
 
 This is a Docker PI sensor hub package.<br>
+
+
 While instanciating the class object, two mandatory arguments (**devicebus** and **deviceaddr**) and one optional argument (**disaplay**) must be passed.<br>
 
 **devicebus** - the number of device.<br>

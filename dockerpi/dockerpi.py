@@ -33,11 +33,10 @@ class DockerPi(object):
     for i in range(TEMP_REG,HUMAN_DETECT + 1) :
       self._aReceiveBuf.append(self._bus.read_byte_data(self._deviceaddr, i))
 
-  @property
+
   def setDisplay(self, display):
       self._display = display
-  
-  @property
+
   def isHumanDetected(self):
      self._readSensorData()
      if(self._display == 'ON'):
@@ -46,8 +45,7 @@ class DockerPi(object):
        else:
          print("DockerPi: No human ditected!")
      return (self._aReceiveBuf[HUMAN_DETECT] == 1)
-  
-  @property
+
   def getOffChipTemperature(self, unit = 'DEGREECELSIUS'):
      self._readSensorData()
 
@@ -65,8 +63,7 @@ class DockerPi(object):
           fahrenheit = ( ((self._aReceiveBuf[TEMP_REG] * 9) / 5) + 32 )
           print("DockerPi: Current Off-chip temperature sensor value = %d Celsius" %  fahrenheit)
           return fahrenheit
-  
-  @property
+
   def getOnBoardBrightness(self):
     self._readSensorData()
 
@@ -80,8 +77,8 @@ class DockerPi(object):
        if(self._display == 'ON'):
          print("DockerPi: Current onboard sensor brightness = %d Lux" % (self._aReceiveBuf[LIGHT_REG_H] << 8 | self._aReceiveBuf[LIGHT_REG_L]))
        return (self._aReceiveBuf[LIGHT_REG_H] << 8 | self._aReceiveBuf[LIGHT_REG_L])
-  
-  @property
+
+
   def getOnBoardTemperature(self, unit = 'DEGREECELSIUS'):
      self._readSensorData()
 
@@ -98,10 +95,10 @@ class DockerPi(object):
        if(self._display == 'ON'):
          print("DockerPi: Current onboard sensor temperature = %d Fahrenheit" % fahrenheit)
        return fahrenheit
-  
-  @property
+
+
   def getOnBoardHumidity(self):
-     self.__readSensorData()
+     self._readSensorData()
 
      if self._aReceiveBuf[ON_BOARD_SENSOR_ERROR] != 0 :
         if(self._display == 'ON'):
@@ -110,7 +107,7 @@ class DockerPi(object):
        print("DockerPi: Current onboard sensor humidity = %d %%" % self._aReceiveBuf[ON_BOARD_HUMIDITY_REG])
      return self._aReceiveBuf[ON_BOARD_HUMIDITY_REG]
 
-  @property
+
   def getBarometerTemperature(self, unit = 'DEGREECELSIUS'):
      self._readSensorData()
 
@@ -127,7 +124,6 @@ class DockerPi(object):
         if(self._display == 'ON'):
           print("DockerPi: Onboard barometer works abnormally!")
 
-  @property
   def getBarometerPressure(self):
      self._readSensorData()
 

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-twython.consts
+dockerpi.consts
 ~~~~~~~~~~
 
 This module contains constants for sensor configuration

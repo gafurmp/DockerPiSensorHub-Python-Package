@@ -29,7 +29,7 @@ import time
 def main():
   print("Docker Pi: Sensor Hub Started")
   while True:
-    sensor = DockerPi(devicebus = 0x1, deviceaddr = 0x17, display = 'ON')
+    sensor = DockerPi(devicebus = 0x1, deviceaddr = 0x17)
     x = sensor.isHumanDetected()
     y = sensor.getOffChipTemperature()
     z = sensor.getOnBoardBrightness()

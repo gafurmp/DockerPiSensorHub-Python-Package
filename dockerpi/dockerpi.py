@@ -9,7 +9,7 @@ This module contains functionality for reading sensor data from Docker Pi sensor
 
 import warnings
 import logging
-from consts import *
+from .consts import *
 import smbus
 
 #log file configuration

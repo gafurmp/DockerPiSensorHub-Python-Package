@@ -50,8 +50,10 @@ class DockerPi(object):
 
      if self._aReceiveBuf[STATUS_REG] & 0x01 :
         logger.debug("DockerPi: Off-chip temperature sensor overrange!")
+        return (-100)
      elif self._aReceiveBuf[STATUS_REG] & 0x02 :
         logger.debug("DockerPi: No external temperature sensor!")
+        return (-100)
      else :
         if unit == 'DEGREECELSIUS':
           logger.debug("DockerPi: Current Off-chip temperature sensor value = %d Celsius" %  self._aReceiveBuf[TEMP_REG])
@@ -66,8 +68,10 @@ class DockerPi(object):
 
     if self._aReceiveBuf[STATUS_REG] & 0x04 :
        logger.debug("DockerPi: Onboard brightness sensor overrange!")
+       return (0)
     elif self._aReceiveBuf[STATUS_REG] & 0x08 :
        logger.debug("DockerPi: Onboard brightness sensor failure!")
+       return (0)
     else :
        logger.debug("DockerPi: Current onboard sensor brightness = %d Lux" % (self._aReceiveBuf[LIGHT_REG_H] << 8 | self._aReceiveBuf[LIGHT_REG_L]))
        return (self._aReceiveBuf[LIGHT_REG_H] << 8 | self._aReceiveBuf[LIGHT_REG_L])
@@ -110,6 +114,7 @@ class DockerPi(object):
           return fahrenheit
      else :
         logger.debug("DockerPi: Onboard barometer works abnormally!")
+        return (-100)
 
   def getBarometerPressure(self):
      self._readSensorData()
@@ -119,3 +124,4 @@ class DockerPi(object):
         return ( (self._aReceiveBuf[BMP280_PRESSURE_REG_L] | self._aReceiveBuf[BMP280_PRESSURE_REG_M] << 8 | self._aReceiveBuf[BMP280_PRESSURE_REG_H] << 16) )
      else :
         logger.debug("DockerPi: Onboard barometer works abnormally!")
+        return (0)
